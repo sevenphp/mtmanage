@@ -1,0 +1,119 @@
+@CHARSET "UTF-8";
+
+#main-left{
+	width:200px;
+/*	height:200px;*/
+	float:left;
+	/*background:green;*/
+	border:1px #F60 dashed;
+	border-bottom:none;
+	margin-right:6px;
+}
+
+
+#list1 dt{
+	height:28px;
+	line-height:33px;
+	text-align:center;
+	background-color:#E7E7E7;
+	background:url(../images/footer.bmp) repeat-x;
+	border-bottom:1px #F60 dashed;
+}
+
+
+#list1 dd{
+	height:24px;
+	line-height:24px;
+	border-bottom:1px #F60 dashed;
+	padding:3px 0;
+	font-size:13px;
+}
+
+#list1 dd:hover{
+	background:#D6D6D6;
+}
+
+#list1 dd a{
+	display:block;
+	height:24px;
+	line-height:24px;
+	width:180px;
+	margin:0 auto;
+	text-decoration: none;
+}
+
+#list1 dd a:hover{
+	color:#F60;
+}
+
+#list1 dd#add a{
+	background:url(../images/addmeeting.png) no-repeat 40px 3px ;
+	text-indent:60px;
+}
+
+#list1 dd#look a{
+	background:url(../images/lookmeeting.png) no-repeat 40px 3px ;
+	text-indent:60px;
+}
+
+#list1 dd#find a{
+	background:url(../images/findmeeting.png) no-repeat 40px 3px ;
+	text-indent:60px;
+}
+
+#list1 dd#manage a{
+	background:url(../images/amendinfo.png) no-repeat 40px 3px ;
+	text-indent:60px;
+}
+
+
+#list2 dt{
+	height:28px;
+	line-height:33px;
+	text-align:center;
+	background-color:#E7E7E7;
+	background:url(../images/footer.bmp) repeat-x;
+	border-bottom:1px #F60 dashed;
+}
+
+
+#list2 dd{
+	height:24px;
+	line-height:24px;
+	border-bottom:1px #F60 dashed;
+	padding:3px 0;
+	font-size:13px;
+}
+
+#list2 dd:hover{
+	background:#D6D6D6;
+}
+
+
+#list2 dd a{
+	display:block;
+	height:24px;
+	line-height:24px;
+	width:180px;
+	margin:0 auto;
+	text-decoration: none;
+}
+
+#list2 dd a:hover{
+	color:#F60;
+}
+
+#list2 dd#userM a{
+	background:url(../images/add.ico) no-repeat 40px 3px ;
+	text-indent:60px;
+}
+
+#list2 dd#meetingM a{
+	background:url(../images/lookmeeting.png) no-repeat 40px 3px ;
+	text-indent:60px;
+}
+
+#list2 dd#departM a{
+	background:url(../images/findmeeting.png) no-repeat 40px 3px ;
+	text-indent:60px;
+}

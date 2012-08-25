@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+#add{
+
+}
+
+#add table{
+	width:600px;
+	margin:0 auto;
+	text-align:center;
+}
+
+#add table td{
+	height:28px;
+	line-height:28px;
+}
+
+#add table td.tbname{
+	width:120px;
+	text-align: right;
+}
+
+#add table td.tbnotice{
+	width:180px;
+	text-align:left;
+}
+
+.subbtm{
+	display: inline-block;
+	height:20px;
+	width:48px;
+	background:url(../images/append.jpg) no-repeat;
+}
+
+.resetbtm{
+	display: inline-block;
+	height:20px;
+	width:48px;
+	background:url(../images/cancel.jpg) no-repeat;
+}

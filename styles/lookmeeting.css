@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+
+#look{
+
+}
+
+#look table{
+	font-size:12px;
+	margin:0 auto;
+	text-align: center;
+}
+
+#look h3{
+	font-size: 14px;
+	font-weight: bold;
+	margin-top:20px;
+	height:22px;
+	line-height: 22px;
+	text-align: center;
+}
+
+#look table tr th,#look table tr td{
+	height:22px;
+	line-height:22px;
+	padding:0 2px;
+}
+
+
+#look table tr th{
+	background-color:#888;
+}
+
+#look table tr.chColor2{
+	background-color:#DDD;
+}
+#look table tr.chColor4{
+	background-color:#DDD;
+}
+#look table tr.chColor6{
+	background-color:#DDD;
+}
+#look table tr.chColor8{
+	background-color:#DDD;
+}
+#look table tr.chColor10{
+	background-color:#DDD;
+}
+#look table tr.chColor12{
+	background-color:#DDD;
+}
+#look table tr.chColor14{
+	background-color:#DDD;
+}

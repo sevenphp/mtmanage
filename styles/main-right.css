@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+
+#main-right{
+	float:left;
+	/*background:yellow;*/
+	min-height:350px;
+	width:750px;
+	border:1px green dashed;
+}
+
+#main-right h4{
+	font-size:13px;
+	height:18px;
+	line-height:18px;
+	width:700px;
+	margin:5px auto;
+	font-weight: normal;
+	border-bottom:1px #DBDBDB dashed;
+}
+
+#content{
+
+}
+
+#content p{
+	text-align: center;
+	margin-top:10px;
+}
+
+#content ul{
+	width:300px;
+	margin:0 auto;
+	margin-top:10px;
+	background:url(../images/login_fb.png) no-repeat right center;
+}
+
+#content ul li{
+	height:22px;
+	line-height:22px;
+	margin:5px 0;
+	list-style-type:decimal;
+}
