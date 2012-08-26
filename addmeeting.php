@@ -29,12 +29,69 @@
 		$addMtInfo['mtdescibe'] = mysql_real_escape_string(chkMtDescribe($_POST['mtdescibe'],2,50));
 
 
-		print_r($addMtInfo);
+/*		print_r($addMtInfo);
 		echo '<br />';
-		print_r($_FILES);
+		print_r($_FILES);*/
+
+		if(empty($_FILES['mtcontent'])){
+			alertBack('会议内容文稿不能为空!');
+		}
+
 		$file_type=array('.txt','.doc');
+
+		//1.判断是否为允许上传的文件类型
 		chkFileExtenName($file_type,$_FILES['mtcontent']['name']);
-		exit();
+		//2.判断文件上传是否有错误
+		chkFileError($_FILES['mtcontent']['error']);
+		
+		//创建存放文件的目录
+		$dir = 'upfile/';
+		if(!is_dir($dir)){
+			mkdir($dir,0777);
+		}
+
+		//3.移动上传文件的临时文件
+		if(is_uploaded_file($_FILES['mtcontent']['tmp_name'])){
+
+			$filename = $dir.date('YmdHis',time()).rand(1,100).strrchr($_FILES['mtcontent']['name'], '.');
+			//开始移动临时文件
+			if(@move_uploaded_file($_FILES['mtcontent']['tmp_name'], $filename)){
+				mysqlQuery("INSERT INTO `mt_meeting_content`(
+																`mt_title`,
+																`mt_depart`,
+																`mt_addr`,
+																`mt_date`,
+																`mt_manager`,
+																`mt_record`,
+																`mt_person`,
+																`mt_describe`,
+																`mt_content`
+															)
+													  VALUES(
+																'{$addMtInfo['mtname']}',
+																'{$addMtInfo['mtdepart']}',
+																'{$addMtInfo['mtaddr']}',
+																'{$addMtInfo['mtdate']}',
+																'{$addMtInfo['mtmanager']}',
+																'{$addMtInfo['mtrecord']}',
+																'{$addMtInfo['mtperson']}',
+																'{$addMtInfo['mtdescibe']}',
+																'$filename'
+															)
+						  ");
+
+				if(mysql_affected_rows() == 1){
+					alertLocation('添加会议记录成功!','manager.php?action=lookmeeting');
+				}else{
+					alertBack('添加会议记录失败!');
+				}
+			}else{
+				alertBack('文件上传未成功!');
+			}
+		}else{
+			alertBack('没有文件被上传!');
+		}
+		//exit();
 	}
 
 ?>

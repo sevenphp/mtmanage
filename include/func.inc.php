@@ -181,6 +181,10 @@
 
 
 	//判断文件上传的扩展名是否符合要求
+	/*
+	*@param $type 允许的文件类型
+	*@param $file 文件路径
+	*/
 	function chkFileExtenName($type,$file){
 		$extName = strrchr($file, '.');		//获取文件的扩展名
 		$str = '';
@@ -197,6 +201,11 @@
 	}
 
 	//判断文件上传是否错误
+	/*
+	*
+	*@param $file 	文件上传错误代码
+	*
+	*/
 	function chkFileError($file){
 		if($file > 0){
 			switch ($file) {
