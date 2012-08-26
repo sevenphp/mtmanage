@@ -65,7 +65,8 @@
 																`mt_record`,
 																`mt_person`,
 																`mt_describe`,
-																`mt_content`
+																`mt_content`,
+																`mt_login`
 															)
 													  VALUES(
 																'{$addMtInfo['mtname']}',
@@ -76,7 +77,8 @@
 																'{$addMtInfo['mtrecord']}',
 																'{$addMtInfo['mtperson']}',
 																'{$addMtInfo['mtdescibe']}',
-																'$filename'
+																'$filename',
+																'{$_SESSION['user']}'
 															)
 						  ");
 

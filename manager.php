@@ -37,6 +37,7 @@
 		<title>Manager</title>
 		<link type="text/css" rel="stylesheet" href="styles/style.css" />
 		<link type="text/css" rel="stylesheet" href="styles/manager.css" />
+		<link type="text/css" rel="stylesheet" href="styles/page_list.css" />
 		<link type="text/css" rel="stylesheet" href="styles/main-left.css" />
 		<link type="text/css" rel="stylesheet" href="styles/main-right.css" />
 		<link type="text/css" rel="stylesheet" href="styles/addmeeting.css" />
@@ -48,6 +49,15 @@
 		<?php
 			}
 		?>
+		<?php
+			if(isset($_GET['action']) && $_GET['action'] == 'findmeeting'){
+		?>
+		<link type="text/css" rel="stylesheet" href="styles/findmeeting.css" />
+		<script type="text/javascript" src="js/findmeeting.js"></script>
+		<?php
+			}
+		?>
+
 		<script type="text/javascript" src="js/manager.js"></script>
 	</head>
 	<body>
@@ -95,9 +105,9 @@
 									case 'lookmeeting':
 										include 'lookmeeting.php';
 										break;
-									//case 'findmeeting':
-									//	echo '<a href="###">查找会议记录</a>';
-									//	break;
+									case 'findmeeting':
+										include 'findmeeting.php';
+										break;
 									//case 'managemeeting':
 									//	echo '<a href="###">管理用户信息</a>';
 									//	break;

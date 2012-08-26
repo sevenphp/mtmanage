@@ -58,13 +58,24 @@
 
 	//mysql执行函数
 	function mysqlQuery($sql){
-		return mysql_query($sql);
+		if(!$rs = mysql_query($sql)){
+			die('SQL执行失败:'.mysql_error());
+		}
+		return $rs;
 	}
 
-	//返回结果集
+	//只能获取结果集中的第一条数据
 	function mysqlFetchArray($sql){
 		return mysql_fetch_array(mysqlQuery($sql));
 		
+	}
+
+	//获取结果集中的所有数据
+	/*
+	*@param $result 参数只能是结果集
+	*/
+	function fetchArray($result){
+		return mysql_fetch_array($result);
 	}
 
 	//判断是否有权限访问页面
@@ -179,6 +190,22 @@
 		return $describe;		
 	}
 
+	//搜索关键字
+	function chkSearchKeyword($keyword){
+		if(empty($keyword)){
+			alertBack('搜索关键字不能为空!');
+		}
+		return $keyword;
+	}
+
+	//搜索类型
+	function chkSearchType($type){
+		if(empty($type)){
+			alertBack('请选择搜索类型!');
+		}
+		return $type;
+	}
+
 
 	//判断文件上传的扩展名是否符合要求
 	/*
@@ -223,6 +250,25 @@
 					break;
 			}
 		}
+	}
+
+
+	/*简单分页函数*/
+	function pageList($info,$lj,$pagenum,$page){
+			//global $page;
+			echo '<div id="pagelist-num">';
+				echo '<ul>';
+						for($i=0;$i<$pagenum;$i++){
+							if($page == $i+1){
+								echo '<li><a href="'.$info.$lj.'page='.($i+1).'" class="selected">'.($i+1).'</a></li>';
+								echo "\n";
+							}else{
+								echo '<li><a href="'.$info.$lj.'page='.($i+1).'">'.($i+1).'</a></li>';
+								echo "\n";								
+							}
+						}
+				echo '</ul>';
+			echo '</div>';
 	}
 
 ?>
