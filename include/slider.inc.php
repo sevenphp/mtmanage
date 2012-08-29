@@ -53,11 +53,11 @@
 						echo "\n\t\t\t\t\t";
 						echo '<dt><h3>管理操作</h3></dt>';
 						echo "\n\t\t\t\t\t\t";
-						echo '<dd id="userM"><a href="">用户账号管理</a></dd>';
+						echo '<dd id="userM"><a href="?action=usermanager">用户账号管理</a></dd>';
 						echo "\n\t\t\t\t\t\t";
-						echo '<dd id="meetingM"><a href="">会议信息管理</a></dd>';
+						echo '<dd id="meetingM"><a href="?action=meetingmanager">会议信息管理</a></dd>';
 						echo "\n\t\t\t\t\t\t";
-						echo '<dd id="departM"><a href="">部门管理</a></dd>';
+						echo '<dd id="departM"><a href="?action=departmanager">部门信息管理</a></dd>';
 						echo "\n\t\t\t\t\t";
 					echo '</dl>';
 					echo "\n\t\t\t\t";				

@@ -62,6 +62,7 @@
 									`mt_meeting_user` 
 							   SET 
 									`mt_last_logintime`='".date('Y-m-d H:i:s',time())."',
+									`mt_last_ip`='{$_SERVER['REMOTE_ADDR']}',
 									`mt_login_count`=`mt_login_count`+1 
 							 WHERE 
 									`mt_id`='{$rs['mt_id']}'

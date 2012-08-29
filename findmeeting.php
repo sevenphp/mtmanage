@@ -13,7 +13,7 @@
 
 	if(isset($_POST['search'])){
 		$searchInfo = array();
-		$searchInfo['keyword'] = chkSearchKeyword($_POST['keyword']);
+		$searchInfo['keyword'] = strtolower(chkSearchKeyword($_POST['keyword']));
 		$searchInfo['type'] = chkSearchType($_POST['searchtype']);
 
 		if($searchInfo['type'] == 1){
@@ -139,7 +139,7 @@
 			<td><?php echo $rs['mt_person'];?></td>
 			<td><?php echo $rs['mt_record'];?></td>
 			<td><?php echo $rs['mt_describe'];?></td>
-			<td><a href="###"><img src="images/xiazai.gif" alt="详情" title="详情" /></a></td>
+			<td><a href="detailmeeting.php?id=<?php echo $rs['mt_id'];?>"><img src="images/xiazai.gif" alt="详情" title="详情" /></a></td>
 		</tr>
 		<?php
 			$i++;

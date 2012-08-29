@@ -6,9 +6,9 @@
 *@link                  anshao.net
 *@copyright             anshao
 */
-	session_start();
-	
 	header('Content-Type:text/html;charset="UTF-8"');
+	
+	session_start();
 
 	date_default_timezone_set('PRC');	//北京时间
 

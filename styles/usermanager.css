@@ -1,0 +1,30 @@
+@CHARSET 'UTF-8';
+
+#usermanager{
+
+}
+
+#usermanager table{
+	font-size:12px;
+	margin:0 auto;
+	text-align: center;	
+}
+
+#usermanager h3{
+	font-size: 14px;
+	font-weight: bold;
+	margin-top:20px;
+	height:22px;
+	line-height: 22px;
+	text-align: center;
+}
+
+#usermanager table tr th,#usermanager table tr td{
+	height:22px;
+	line-height:22px;
+	padding:0 2px;
+}
+
+#usermanager table tr th{
+	background-color:#888;
+}

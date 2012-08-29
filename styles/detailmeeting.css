@@ -1,0 +1,45 @@
+@CHARSET 'UTF-8';
+
+#detail{
+	border:1px #DDD dashed;
+	padding-bottom:5px;
+}
+
+#detail h4{
+	width:930px;
+	margin:5px auto;
+	border-bottom:1px #AAA dashed;
+	margin-top:10px;
+	text-align: center;
+}
+
+#detail table{
+	width:930px;
+	margin:0 auto;
+	border-color: #EEE;
+}
+
+#detail table td{
+	height:26px;
+	padding:5px 0;
+	text-align: center;
+}
+
+#detail table td.tdname{
+	width:150px;
+	text-align: right;
+	font-weight: bold;
+}
+
+#detail table td.tdvalue{
+	width:327px;
+	text-align: center;
+}
+
+#detail table td input{
+	display: inline-block;
+	height:22px;
+	background-color:#FFF;
+	cursor:pointer;
+	border:1px #F60 dashed;
+}

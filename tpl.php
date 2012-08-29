@@ -1,26 +1,28 @@
 <?php
-/**
-*@author              	anshao
-*@date                  Aug 22, 2012
-*@encoding              UTF-8
-*@link                  anshao.net
-*@copyright             anshao
-*/
-
-	$a    = 10;
-	$bbbb = 111;
+/*header("Content-type:application/vnd.ms-excel");
+header("Content-Disposition:filename=test.xls");
+session_start();
+echo "test1\t";
+echo "test2\t\n";
+echo "test1\t";
+echo "test2\t\n";
+echo "test1\t";
+echo "test2\t\n";
+echo "test1\t";
+echo "test2\t\n";
+echo "test1\t";
+echo "test2\t\n";
+echo "test1\t";
+echo "test2\t\n";*/
+	if(isset($_POST['sub'])){
+		print_r($_POST['depart']);
+	}
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Insert title here</title>
-	</head>
-	<body>
-		<div id="login">
-			<table cellpadding="0" cellspacing="0" border="0">
-				
-			</table>
-		</div>
-	</body>
-</html>
+<form action="" method="post">
+	<input type="checkbox" name="depart[]" value="1"/>开发部
+	<input type="checkbox" name="depart[]" value="2"/>开发部
+	<input type="checkbox" name="depart[]" value="3"/>开发部
+	<input type="checkbox" name="depart[]" value="4"/>开发部
+	<input type="checkbox" name="depart[]" value="5"/>开发部
+	<input type="submit" name="sub" />
+</form>

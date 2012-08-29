@@ -18,15 +18,22 @@
 		//定义一个数组用来接受POST过来的数据
 		$addMtInfo = array();
 
+		//通过部门id获取部门名称
+		$rs = mysqlFetchArray("SELECT `mt_depart_name`FROM `mt_meeting_depart` WHERE `mt_id`='{$_POST['mtdepart']}'");
+
+		if(mysql_affected_rows() == 0){
+			alertBack('请选择部门');
+		}
+
 		$addMtInfo['mtname'] = mysql_real_escape_string(chkMtTitle($_POST['mtname'],2,20));
-		$addMtInfo['mtdepart'] = mysql_real_escape_string(chkMtDepart($_POST['mtdepart'],2,10));
+		$addMtInfo['mtdepart'] = mysql_real_escape_string($rs['mt_depart_name']);
 		$addMtInfo['mtaddr'] = mysql_real_escape_string(chkMtAddr($_POST['mtaddr'],2,30));
 		$addMtInfo['mtdate'] = mysql_real_escape_string($_POST['mtdateY'].'-'.$_POST['mtdateM'].'-'.$_POST['mtdateD']);
 		//die($addMtInfo['mtdate']);
 		$addMtInfo['mtmanager'] = mysql_real_escape_string(chkMtManager($_POST['mtmanager']));
 		$addMtInfo['mtrecord'] = mysql_real_escape_string(chkMtRecord($_POST['mtrecord']));
 		$addMtInfo['mtperson'] = mysql_real_escape_string(chkMtPerson($_POST['mtperson']));	//到会人员
-		$addMtInfo['mtdescibe'] = mysql_real_escape_string(chkMtDescribe($_POST['mtdescibe'],2,50));
+		$addMtInfo['mtdescribe'] = mysql_real_escape_string(chkMtDescribe($_POST['mtdescribe'],2,50));
 
 
 /*		print_r($addMtInfo);
@@ -76,7 +83,7 @@
 																'{$addMtInfo['mtmanager']}',
 																'{$addMtInfo['mtrecord']}',
 																'{$addMtInfo['mtperson']}',
-																'{$addMtInfo['mtdescibe']}',
+																'{$addMtInfo['mtdescribe']}',
 																'$filename',
 																'{$_SESSION['user']}'
 															)
@@ -96,9 +103,13 @@
 		//exit();
 	}
 
+	//获取部门信息
+	$query = mysqlQuery("SELECT `mt_id`,`mt_depart_name` FROM `mt_meeting_depart`");
+	//$departHtml = '';
+
 ?>
 <div id="add">
-	<form action="" method="post" enctype="multipart/form-data">
+	<form action="" method="post" enctype="multipart/form-data" onsubmit="">
 		<input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
 		<table cellpadding="0" cellspacing="0" border="0">
 			<tbody>
@@ -112,7 +123,23 @@
 				</tr>
 				<tr>
 					<td class="tbname">部门名称:</td>
-					<td><input type="text"name="mtdepart" class="text" /></td>
+					<td><!-- <input type="text"name="mtdepart" class="text" /> -->
+						<select name="mtdepart">
+							<option value="0">选择部门</option>
+							<?php
+								if(mysql_affected_rows() == 0){
+									echo '<option value="0" selected="selected">还没有部门</option>';
+								}elseif(mysql_affected_rows() != 0){
+									while($rs = fetchArray($query)){
+								
+							?>
+							<option value="<?php echo $rs['mt_id'];?>"><?php echo $rs['mt_depart_name'];?></option>
+							<?php
+								}
+									}
+							?>
+						</select>
+					</td>
 					<td class="tbnotice">*填写部门名称</td>
 				</tr>
 				<tr>
@@ -184,7 +211,7 @@
 				</tr>
 				<tr>
 					<td class="tbname">会议摘要:</td>
-					<td><textarea name="mtdescibe" class="text"></textarea></td>
+					<td><textarea name="mtdescribe" class="text"></textarea></td>
 					<td class="tbnotice">*填写会议摘要</td>
 				</tr>
 				<tr>

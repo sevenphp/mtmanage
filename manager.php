@@ -53,7 +53,34 @@
 			if(isset($_GET['action']) && $_GET['action'] == 'findmeeting'){
 		?>
 		<link type="text/css" rel="stylesheet" href="styles/findmeeting.css" />
-		<script type="text/javascript" src="js/findmeeting.js"></script>
+		<?php
+			}
+		?>
+		<?php
+			if(isset($_GET['action']) && $_GET['action'] == 'managemeeting'){
+		?>
+		<link type="text/css" rel="stylesheet" href="styles/changepass.css" />
+		<?php
+			}
+		?>
+		<?php
+			if(isset($_GET['action']) && $_GET['action'] == 'usermanager'){
+		?>
+		<link type="text/css" rel="stylesheet" href="styles/usermanager.css" />
+		<?php
+			}
+		?>
+		<?php
+			if(isset($_GET['action']) && $_GET['action'] == 'departmanager'){
+		?>
+		<link type="text/css" rel="stylesheet" href="styles/departmanager.css" />
+		<?php
+			}
+		?>				
+		<?php
+			if(isset($_GET['action']) && $_GET['action'] == 'meetingmanager'){
+		?>
+		<link type="text/css" rel="stylesheet" href="styles/meetingmanager.css" />
 		<?php
 			}
 		?>
@@ -90,6 +117,15 @@
 									case 'managemeeting':
 										echo '<a href="###">管理用户信息</a>';
 										break;
+									case 'usermanager':
+										echo '<a href="###">用户账号管理</a>';
+										break;
+									case 'departmanager':
+										echo '<a href="###">部门信息管理</a>';
+										break;
+									case 'meetingmanager':
+										echo '<a href="###">会议信息管理</a>';
+										break;
 								}
 							}
 						?>
@@ -108,9 +144,18 @@
 									case 'findmeeting':
 										include 'findmeeting.php';
 										break;
-									//case 'managemeeting':
-									//	echo '<a href="###">管理用户信息</a>';
-									//	break;
+									case 'managemeeting':
+										include 'changepass.php';
+										break;
+									case 'usermanager':
+										include 'usermanager.php';
+										break;
+									case 'departmanager':
+										include 'departmanager.php';
+										break;
+									case 'meetingmanager':
+										include 'meetingmanager.php';
+										break;
 								}								
 							}
 						//include 'include/introduce.inc.php'; 

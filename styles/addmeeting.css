@@ -30,6 +30,7 @@
 	height:20px;
 	width:48px;
 	background:url(../images/append.jpg) no-repeat;
+	border:none;
 }
 
 .resetbtm{
@@ -37,4 +38,5 @@
 	height:20px;
 	width:48px;
 	background:url(../images/cancel.jpg) no-repeat;
+	border:none;
 }

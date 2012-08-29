@@ -11,6 +11,10 @@
 		exit('Access Tag No Defined');
 	}
 
+	if($_SESSION['level'] != 1){
+		alertLocation('没有权限访问!','manager.php');
+	}	
+
 	if(isset($_GET['page'])){	//为$_GET['page']做判断,
 		$page = $_GET['page'];
 		if(empty($page) || $page<0 || !is_numeric($page)){	//进行容错
@@ -56,7 +60,7 @@
 			<th>出席人员</th>
 			<th>记录人</th>
 			<th>会议摘要</th>
-			<th>查看详情</th>
+			<th>执行操作</th>
 		</tr>
 		<?php
 			//foreach (range(1,15) as $value) {
@@ -79,7 +83,7 @@
 			<td><?php echo $rs['mt_person'];?></td>
 			<td><?php echo $rs['mt_record'];?></td>
 			<td><?php echo $rs['mt_describe'];?></td>
-			<td><a href="detailmeeting.php?id=<?php echo $rs['mt_id'];?>"><img src="images/xiazai.gif" alt="详情" title="详情" /></a></td>
+			<td><a href="delmeeting.php?id=<?php echo $rs['mt_id'];?>" name="delmeeting">删除记录</a></td>
 		</tr>
 		<?php
 			$i++;
@@ -87,9 +91,6 @@
 		?>
 	</table>
 </div>
-<div id="out">
-	<a href="checkout.php">点此导出会议列表 >>> <input type="button" name="checkout" value="" /></a>
-</div>
 <?php
-	pageList('manager.php?action=lookmeeting','&',$pagenum,$page);
+	pageList('manager.php?action=meetingmanager','&',$pagenum,$page);
 ?>

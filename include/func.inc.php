@@ -190,6 +190,7 @@
 		return $describe;		
 	}
 
+
 	//搜索关键字
 	function chkSearchKeyword($keyword){
 		if(empty($keyword)){
