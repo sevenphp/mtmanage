@@ -12,8 +12,8 @@
 
 	isAccess();
 
-	if($_SESSSION['level'] != 1){
-		alertBack('无权限');
+	if($_SESSION['level'] != 1){
+		alertLocation('没有权限访问!','manager.php');
 	}
 
 	if(isset($_GET['id']) && !empty($_GET['id'])){

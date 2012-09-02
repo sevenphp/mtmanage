@@ -7,6 +7,15 @@ addMtInfo	addmeeting.php	/^		$addMtInfo = array();$/;"	v
 dir	addmeeting.php	/^		$dir = 'upfile\/';$/;"	v
 file_type	addmeeting.php	/^		$file_type=array('.txt','.doc');$/;"	v
 filename	addmeeting.php	/^			$filename = $dir.date('YmdHis',time()).rand(1,100).strrchr($_FILES['mtcontent']['name'], '.');$/;"	v
+query	addmeeting.php	/^	$query = mysqlQuery("SELECT `mt_id`,`mt_depart_name` FROM `mt_meeting_depart`");$/;"	v
+rs	addmeeting.php	/^		$rs = mysqlFetchArray("SELECT `mt_depart_name`FROM `mt_meeting_depart` WHERE `mt_id`='{$_POST['mtdepart']}'");$/;"	v
+IN_TAG	adduser.php	/^	define('IN_TAG', true);$/;"	d
+query	adduser.php	/^	$query = mysqlQuery("SELECT `mt_id`,`mt_depart_name` FROM `mt_meeting_depart`");	$/;"	v
+rs	adduser.php	/^		$rs = mysqlFetchArray("SELECT `mt_depart_name`FROM `mt_meeting_depart` WHERE `mt_id`='{$_POST['depart']}'");$/;"	v
+rsLogin	adduser.php	/^	$rsLogin = mysqlFetchArray("SELECT $/;"	v
+sfHtml	adduser.php	/^		$sfHtml = '普通用户';$/;"	v
+sfHtml	adduser.php	/^		$sfHtml = '管理员';$/;"	v
+userInfo	adduser.php	/^		$userInfo = array();$/;"	v
 newpass	changepass.php	/^		$newpass = checkPass($_POST['newpass'],2,32);$/;"	v
 oldpass	changepass.php	/^		$oldpass = checkPass($_POST['oldpass'],2,32);$/;"	v
 user	changepass.php	/^		$user = $_POST['username'];$/;"	v
@@ -27,7 +36,10 @@ DB_NAME	conn/conn.inc.php	/^	define('DB_NAME', 'meeting');$/;"	d
 DB_PASS	conn/conn.inc.php	/^	define('DB_PASS', 'shao520');$/;"	d
 DB_USER	conn/conn.inc.php	/^	define('DB_USER', 'root');$/;"	d
 conn	conn/conn.inc.php	/^	$conn = @mysql_connect(DB_HOST,DB_USER,DB_PASS) or die('数据库连接失败!');$/;"	v
+IN_TAG	deldepart.php	/^	define('IN_TAG', true);$/;"	d
+IN_TAG	delmeeting.php	/^	define('IN_TAG', true);$/;"	d
 IN_TAG	deluser.php	/^	define('IN_TAG', true);$/;"	d
+depart	departmanager.php	/^		$depart = chkMtDepart($_POST['departname'],2,20);$/;"	v
 query	departmanager.php	/^	$query = mysqlQuery("SELECT `mt_id`,`mt_depart_name` FROM `mt_meeting_depart`");$/;"	v
 IN_TAG	detailmeeting.php	/^	define('IN_TAG', true);$/;"	d
 content	detailmeeting.php	/^		$content = file_get_contents($rs['mt_content']);	\/\/获取文件内容$/;"	v
@@ -93,6 +105,8 @@ pass.onmouseout	js/login.js	/^		pass.onmouseout = function (){$/;"	c
 pass.onmouseover	js/login.js	/^		pass.onmouseover = function (){$/;"	c
 user.onmouseout	js/login.js	/^		user.onmouseout = function (){$/;"	c
 user.onmouseover	js/login.js	/^		user.onmouseover = function (){$/;"	c
+deldepart	js/manager.js	/^				deldepart[i].onclick = function(){$/;"	f
+delmeeting	js/manager.js	/^				delmeeting[i].onclick = function (){$/;"	f
 deluser	js/manager.js	/^				deluser[i].onclick = function(){$/;"	f
 fm.onsubmit	js/manager.js	/^			fm.onsubmit = function (){$/;"	f
 getElementsByClassName	js/manager.js	/^	function getElementsByClassName(className,tagName){  $/;"	f
@@ -120,6 +134,23 @@ IN_TAG	manager.php	/^	define('IN_TAG', true);$/;"	d
 rsLogin	manager.php	/^	$rsLogin = mysqlFetchArray("SELECT $/;"	v
 sfHtml	manager.php	/^		$sfHtml = '普通用户';$/;"	v
 sfHtml	manager.php	/^		$sfHtml = '管理员';$/;"	v
+counter	meetingmanager.php	/^	$counter = mysql_num_rows($query);		\/\/总记录条数$/;"	v
+i	meetingmanager.php	/^			$i = 1;$/;"	v
+pag	meetingmanager.php	/^	$pag = ($page-1)*$pagelimit;$/;"	v
+page	meetingmanager.php	/^			$page = 1;$/;"	v
+page	meetingmanager.php	/^			$page = intval($_GET['page']);$/;"	v
+page	meetingmanager.php	/^		$page = $_GET['page'];$/;"	v
+page	meetingmanager.php	/^		$page = $pagenum;$/;"	v
+page	meetingmanager.php	/^		$page = 1;$/;"	v
+pagelimit	meetingmanager.php	/^	$pagelimit = 10;	\/\/每分页显示10条数据$/;"	v
+pagenum	meetingmanager.php	/^		$pagenum = 1;	\/\/如果没有数据,默认第一页$/;"	v
+pagenum	meetingmanager.php	/^		$pagenum = ceil($counter\/$pagelimit);		\/\/总页数$/;"	v
+query	meetingmanager.php	/^	$query = mysqlQuery("SELECT `mt_id` FROM `mt_meeting_content`");$/;"	v
+query	meetingmanager.php	/^	$query = mysql_query($sql);$/;"	v
+sql	meetingmanager.php	/^	$sql = "SELECT `mt_id`,`mt_title`,`mt_depart`,`mt_addr`,`mt_date`,`mt_manager`,`mt_person`,`mt_record`,`mt_describe` FROM `mt_meeting_content` ORDER BY `mt_id` DESC LIMIT $pag,$pagelimit";$/;"	v
+str	meetingmanager.php	/^					$str = '';$/;"	v
+str	meetingmanager.php	/^					$str = 'B';$/;"	v
+str	meetingmanager.php	/^			$str = '';$/;"	v
 IN_TAG	printwindow.php	/^  define('IN_TAG', true);$/;"	d
 content	printwindow.php	/^$content = file_get_contents($rs['mt_content']);$/;"	v
 prints	printwindow.php	/^  function prints(){     $/;"	f

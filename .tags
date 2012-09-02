@@ -8,8 +8,11 @@ DB_HOST	conn/conn.inc.php	/^	define('DB_HOST', 'localhost');		$/;"	d
 DB_NAME	conn/conn.inc.php	/^	define('DB_NAME', 'meeting');$/;"	d
 DB_PASS	conn/conn.inc.php	/^	define('DB_PASS', 'shao520');$/;"	d
 DB_USER	conn/conn.inc.php	/^	define('DB_USER', 'root');$/;"	d
+IN_TAG	adduser.php	/^	define('IN_TAG', true);$/;"	d
 IN_TAG	checkout.php	/^	define('IN_TAG', true);$/;"	d
 IN_TAG	chklogin.php	/^	define('IN_TAG', true);$/;"	d
+IN_TAG	deldepart.php	/^	define('IN_TAG', true);$/;"	d
+IN_TAG	delmeeting.php	/^	define('IN_TAG', true);$/;"	d
 IN_TAG	deluser.php	/^	define('IN_TAG', true);$/;"	d
 IN_TAG	detailmeeting.php	/^	define('IN_TAG', true);$/;"	d
 IN_TAG	index.php	/^	define('IN_TAG', true);$/;"	d
@@ -40,11 +43,15 @@ content	detailmeeting.php	/^		$content = htmlspecialchars($content);$/;"	v
 content	printwindow.php	/^$content = file_get_contents($rs['mt_content']);$/;"	v
 counter	findmeeting.php	/^			$counter = mysql_num_rows($query);		\/\/总记录条数$/;"	v
 counter	lookmeeting.php	/^	$counter = mysql_num_rows($query);		\/\/总记录条数$/;"	v
+counter	meetingmanager.php	/^	$counter = mysql_num_rows($query);		\/\/总记录条数$/;"	v
 counter	usermanager.php	/^	$counter = mysql_num_rows($query);		\/\/总记录条数$/;"	v
 delHtml	usermanager.php	/^							$delHtml = '<a href="deluser.php?id='.$id.'" name="deluser">删除<\/a>';$/;"	v
 delHtml	usermanager.php	/^							$delHtml = '删除';$/;"	v
 delHtml	usermanager.php	/^						$delHtml = '<a href="deluser.php?id='.$id.'" name="deluser">删除<\/a>';$/;"	v
+deldepart	js/manager.js	/^				deldepart[i].onclick = function(){$/;"	f
+delmeeting	js/manager.js	/^				delmeeting[i].onclick = function (){$/;"	f
 deluser	js/manager.js	/^				deluser[i].onclick = function(){$/;"	f
+depart	departmanager.php	/^		$depart = chkMtDepart($_POST['departname'],2,20);$/;"	v
 dir	addmeeting.php	/^		$dir = 'upfile\/';$/;"	v
 extName	include/func.inc.php	/^		$extName = strrchr($file, '.');		\/\/获取文件的扩展名$/;"	v
 fetchArray	include/func.inc.php	/^	function fetchArray($result){$/;"	f
@@ -56,6 +63,7 @@ htmlSpecial	include/func.inc.php	/^	function htmlSpecial($string) {$/;"	f
 i	checkout.php	/^			$i = 1;$/;"	v
 i	findmeeting.php	/^			$i = 1;$/;"	v
 i	lookmeeting.php	/^			$i = 1;$/;"	v
+i	meetingmanager.php	/^			$i = 1;$/;"	v
 id	usermanager.php	/^					$id = $rs['mt_id'];$/;"	v
 isAccess	include/func.inc.php	/^	function isAccess(){$/;"	f
 key	include/func.inc.php	/^				foreach($string as $key => $value){$/;"	v
@@ -74,6 +82,7 @@ oldpass	changepass.php	/^		$oldpass = checkPass($_POST['oldpass'],2,32);$/;"	v
 pag	findmeeting.php	/^			$pag = ($page-1)*$pagelimit;$/;"	v
 pag	findmeeting.php	/^			$pag = ($page-1)*$pagelimit;*\/$/;"	v
 pag	lookmeeting.php	/^	$pag = ($page-1)*$pagelimit;$/;"	v
+pag	meetingmanager.php	/^	$pag = ($page-1)*$pagelimit;$/;"	v
 pag	usermanager.php	/^	$pag = ($page-1)*$pagelimit;$/;"	v
 page	findmeeting.php	/^					$page = 1;$/;"	v
 page	findmeeting.php	/^					$page = intval($_GET['page']);$/;"	v
@@ -85,6 +94,11 @@ page	lookmeeting.php	/^			$page = intval($_GET['page']);$/;"	v
 page	lookmeeting.php	/^		$page = $_GET['page'];$/;"	v
 page	lookmeeting.php	/^		$page = $pagenum;$/;"	v
 page	lookmeeting.php	/^		$page = 1;$/;"	v
+page	meetingmanager.php	/^			$page = 1;$/;"	v
+page	meetingmanager.php	/^			$page = intval($_GET['page']);$/;"	v
+page	meetingmanager.php	/^		$page = $_GET['page'];$/;"	v
+page	meetingmanager.php	/^		$page = $pagenum;$/;"	v
+page	meetingmanager.php	/^		$page = 1;$/;"	v
 page	usermanager.php	/^			$page = 1;$/;"	v
 page	usermanager.php	/^			$page = intval($_GET['page']);$/;"	v
 page	usermanager.php	/^		$page = $_GET['page'];$/;"	v
@@ -93,11 +107,14 @@ page	usermanager.php	/^		$page = 1;$/;"	v
 pageList	include/func.inc.php	/^	function pageList($info,$lj,$pagenum,$page){$/;"	f
 pagelimit	findmeeting.php	/^			$pagelimit = 10;	\/\/每分页显示10条数据$/;"	v
 pagelimit	lookmeeting.php	/^	$pagelimit = 10;	\/\/每分页显示10条数据$/;"	v
+pagelimit	meetingmanager.php	/^	$pagelimit = 10;	\/\/每分页显示10条数据$/;"	v
 pagelimit	usermanager.php	/^	$pagelimit = 10;	\/\/每分页显示10条数据$/;"	v
 pagenum	findmeeting.php	/^				$pagenum = 1;	\/\/如果没有数据,默认第一页$/;"	v
 pagenum	findmeeting.php	/^				$pagenum = ceil($counter\/$pagelimit);		\/\/总页数$/;"	v
 pagenum	lookmeeting.php	/^		$pagenum = 1;	\/\/如果没有数据,默认第一页$/;"	v
 pagenum	lookmeeting.php	/^		$pagenum = ceil($counter\/$pagelimit);		\/\/总页数$/;"	v
+pagenum	meetingmanager.php	/^		$pagenum = 1;	\/\/如果没有数据,默认第一页$/;"	v
+pagenum	meetingmanager.php	/^		$pagenum = ceil($counter\/$pagelimit);		\/\/总页数$/;"	v
 pagenum	usermanager.php	/^		$pagenum = 1;	\/\/如果没有数据,默认第一页$/;"	v
 pagenum	usermanager.php	/^		$pagenum = ceil($counter\/$pagelimit);		\/\/总页数$/;"	v
 pass	chklogin.php	/^		$pass = checkPass($_POST['pass'],2,32);$/;"	v
@@ -105,6 +122,8 @@ pass.onmouseout	js/login.js	/^		pass.onmouseout = function (){$/;"	c
 pass.onmouseover	js/login.js	/^		pass.onmouseover = function (){$/;"	c
 prints	printwindow.php	/^  function prints(){     $/;"	f
 printview	printwindow.php	/^  function printview(){     $/;"	f
+query	addmeeting.php	/^	$query = mysqlQuery("SELECT `mt_id`,`mt_depart_name` FROM `mt_meeting_depart`");$/;"	v
+query	adduser.php	/^	$query = mysqlQuery("SELECT `mt_id`,`mt_depart_name` FROM `mt_meeting_depart`");	$/;"	v
 query	checkout.php	/^	$query = mysql_query($sql);	$/;"	v
 query	chklogin.php	/^		$query = mysqlQuery("SELECT $/;"	v
 query	departmanager.php	/^	$query = mysqlQuery("SELECT `mt_id`,`mt_depart_name` FROM `mt_meeting_depart`");$/;"	v
@@ -115,20 +134,28 @@ query	findmeeting.php	/^			$query = mysqlQuery("SELECT `mt_id` FROM `mt_meeting_
 query	findmeeting.php	/^			$query = mysqlQuery("SELECT `mt_id` FROM `mt_meeting_content` WHERE `mt_title` LIKE '%{$searchInfo['keyword']}%'");$/;"	v
 query	lookmeeting.php	/^	$query = mysqlQuery("SELECT `mt_id` FROM `mt_meeting_content`");$/;"	v
 query	lookmeeting.php	/^	$query = mysql_query($sql);$/;"	v
+query	meetingmanager.php	/^	$query = mysqlQuery("SELECT `mt_id` FROM `mt_meeting_content`");$/;"	v
+query	meetingmanager.php	/^	$query = mysql_query($sql);$/;"	v
 query	usermanager.php	/^	$query = mysqlQuery("SELECT $/;"	v
 query	usermanager.php	/^	$query = mysqlQuery("SELECT `mt_id` FROM `mt_meeting_user`");$/;"	v
+rs	addmeeting.php	/^		$rs = mysqlFetchArray("SELECT `mt_depart_name`FROM `mt_meeting_depart` WHERE `mt_id`='{$_POST['mtdepart']}'");$/;"	v
+rs	adduser.php	/^		$rs = mysqlFetchArray("SELECT `mt_depart_name`FROM `mt_meeting_depart` WHERE `mt_id`='{$_POST['depart']}'");$/;"	v
 rs	chklogin.php	/^		$rs = mysql_fetch_array($query);$/;"	v
 rs	detailmeeting.php	/^		$rs = mysqlFetchArray("SELECT `mt_id`,`mt_title`,`mt_addr`,`mt_depart`,`mt_manager`,`mt_person`,`mt_record`,`mt_date`,`mt_describe`,`mt_content` FROM `mt_meeting_content` WHERE `mt_id`='{$_GET['id']}' LIMIT 1");$/;"	v
 rs	printwindow.php	/^$rs = mysqlFetchArray("select * from mt_meeting_content where mt_id ='{$_POST['mtid']}'");$/;"	v
+rsLogin	adduser.php	/^	$rsLogin = mysqlFetchArray("SELECT $/;"	v
 rsLogin	detailmeeting.php	/^	$rsLogin = mysqlFetchArray("SELECT $/;"	v
 rsLogin	manager.php	/^	$rsLogin = mysqlFetchArray("SELECT $/;"	v
 searchInfo	findmeeting.php	/^		$searchInfo = array();$/;"	v
+sfHtml	adduser.php	/^		$sfHtml = '普通用户';$/;"	v
+sfHtml	adduser.php	/^		$sfHtml = '管理员';$/;"	v
 sfHtml	detailmeeting.php	/^		$sfHtml = '普通用户';$/;"	v
 sfHtml	detailmeeting.php	/^		$sfHtml = '管理员';$/;"	v
 sfHtml	manager.php	/^		$sfHtml = '普通用户';$/;"	v
 sfHtml	manager.php	/^		$sfHtml = '管理员';$/;"	v
 sql	checkout.php	/^	$sql = "SELECT `mt_id`,`mt_title`,`mt_depart`,`mt_addr`,`mt_date`,`mt_manager`,`mt_person`,`mt_record`,`mt_describe` FROM `mt_meeting_content` ORDER BY `mt_id`";$/;"	v
 sql	lookmeeting.php	/^	$sql = "SELECT `mt_id`,`mt_title`,`mt_depart`,`mt_addr`,`mt_date`,`mt_manager`,`mt_person`,`mt_record`,`mt_describe` FROM `mt_meeting_content` ORDER BY `mt_id` DESC LIMIT $pag,$pagelimit";$/;"	v
+sql	meetingmanager.php	/^	$sql = "SELECT `mt_id`,`mt_title`,`mt_depart`,`mt_addr`,`mt_date`,`mt_manager`,`mt_person`,`mt_record`,`mt_describe` FROM `mt_meeting_content` ORDER BY `mt_id` DESC LIMIT $pag,$pagelimit";$/;"	v
 status	usermanager.php	/^							$status = '正常';$/;"	v
 status	usermanager.php	/^						$status = '冻结';$/;"	v
 statusHtml	usermanager.php	/^							$statusHtml = '<a href="updatestatus.php?action=unactive&id='.$id.'">冻结账号<\/a>';$/;"	v
@@ -145,6 +172,9 @@ str	include/func.inc.php	/^		$str = '';$/;"	v
 str	lookmeeting.php	/^					$str = '';$/;"	v
 str	lookmeeting.php	/^					$str = 'B';$/;"	v
 str	lookmeeting.php	/^			$str = '';$/;"	v
+str	meetingmanager.php	/^					$str = '';$/;"	v
+str	meetingmanager.php	/^					$str = 'B';$/;"	v
+str	meetingmanager.php	/^			$str = '';$/;"	v
 string	include/func.inc.php	/^				$string = mysql_real_escape_string($string);$/;"	v
 string	include/func.inc.php	/^			$string = htmlspecialchars($string);$/;"	v
 user	changepass.php	/^		$user = $_POST['username'];$/;"	v
@@ -152,4 +182,5 @@ user	chklogin.php	/^		$user = checkUser($_POST['username'],2,20);$/;"	v
 user	include/func.inc.php	/^		$user = trim($user);$/;"	v
 user.onmouseout	js/login.js	/^		user.onmouseout = function (){$/;"	c
 user.onmouseover	js/login.js	/^		user.onmouseover = function (){$/;"	c
+userInfo	adduser.php	/^		$userInfo = array();$/;"	v
 window.onload	js/manager.js	/^	window.onload = function(){$/;"	f
